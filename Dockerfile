@@ -12,4 +12,4 @@ RUN mv boxfuse-sample-java-war-hello/src/main/webapp/Docker_Temporary_Image_Goog
 RUN cd boxfuse-sample-java-war-hello && mvn package
 RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+CMD /usr/local/tomcat/bin/catalina.sh run
