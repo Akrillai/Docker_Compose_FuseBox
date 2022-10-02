@@ -5,10 +5,10 @@ RUN apt install default-jdk -y
 RUN apt install tomcat9 -y
 RUN apt install git -y
 
-ENV CATALINA_HOME /usr/local/tomcat
-ENV PATH $CATALINA_HOME/bin:$PATH
-RUN mkdir -p "$CATALINA_HOME"
-WORKDIR $CATALINA_HOME
+# ENV CATALINA_HOME /usr/local/tomcat
+# ENV PATH $CATALINA_HOME/bin:$PATH
+# RUN mkdir -p "$CATALINA_HOME"
+# WORKDIR $CATALINA_HOME
 
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 #RUN rm boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
@@ -19,4 +19,4 @@ RUN cd boxfuse-sample-java-war-hello && mvn package
 RUN cd ~
 RUN cd boxfuse-sample-java-war-hello/target && cp hello-1.0.war /var/lib/tomcat9/webapps/
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+CMD ["/bin/catalina.sh", "run"]
