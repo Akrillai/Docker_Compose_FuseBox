@@ -3,7 +3,7 @@ RUN apt install maven -y
 RUN apt install default-jdk -y
 RUN apt install tomcat9 -y
 RUN apt install git -y
-RUN git clone git@github.com:boxfuse/boxfuse-sample-java-war-hello.git
+RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN rm boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
 RUN wget https://www.docker.com/wp-content/uploads/2022/05/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png -P /boxfuse-sample-java-war-hello/src/main/webapp
 RUN mv boxfuse-sample-java-war-hello/src/main/webapp/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
