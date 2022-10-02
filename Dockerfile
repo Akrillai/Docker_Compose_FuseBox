@@ -4,6 +4,12 @@ RUN apt install maven -y
 RUN apt install default-jdk -y
 RUN apt install tomcat9 -y
 RUN apt install git -y
+
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $CATALINA_HOME/bin:$PATH
+RUN mkdir -p "$CATALINA_HOME"
+WORKDIR $CATALINA_HOME
+
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 #RUN rm boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
 #RUN apt install wget
