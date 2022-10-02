@@ -20,7 +20,7 @@ WORKDIR /usr/local/tomcat/webapps
 RUN curl -O -L https://github.com/bhaskarndas/sample-war/raw/main/sampletest.war
 
 
-CMD ["https://github.com/apache/tomcat/blob/main/bin/catalina.sh", "run"]
+CMD ["/bin/catalina.sh", "run"]
 
 
 
