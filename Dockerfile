@@ -2,7 +2,7 @@ FROM ubuntu:20.04
 RUN apt update
 RUN apt install maven -y
 RUN apt install default-jdk -y
-RUN apt install tomcat9 -y
+# RUN apt install tomcat9 -y
 RUN apt install git -y
 RUN mkdir /opt/tomcat
 WORKDIR /opt/tomcat
