@@ -12,8 +12,8 @@ RUN mv apache-tomcat-9.0.67/* /opt/tomcat
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN rm boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
 RUN apt install wget
-RUN wget https://www.docker.com/wp-content/uploads/2022/05/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png -P /boxfuse-sample-java-war-hello/src/main/webapp
-RUN mv /opt/tomcat/boxfuse-sample-java-war-hello/src/main/webapp/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png /opt/tomcat/boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
+RUN cd boxfuse-sample-java-war-hello/src/main/webapp/ && wget https://www.docker.com/wp-content/uploads/2022/05/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png
+RUN cd boxfuse-sample-java-war-hello/src/main/webapp/ && mv Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse.png
 RUN cd boxfuse-sample-java-war-hello && mvn package
 RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war webapps/
 
