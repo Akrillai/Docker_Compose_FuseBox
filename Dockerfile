@@ -9,6 +9,9 @@ ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.67/bin/apache-tomcat-9.0.67.ta
 RUN tar -xvzf apache-tomcat-9.0.67.tar.gz
 RUN mv apache-tomcat-9.0.67/* /opt/tomcat
 
+
+RUN mkdir /opt/docker_project
+WORKDIR /opt/docker_project
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN rm boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
 RUN apt install wget
@@ -16,7 +19,6 @@ RUN cd boxfuse-sample-java-war-hello/src/main/webapp/ && wget https://www.docker
 RUN cd boxfuse-sample-java-war-hello/src/main/webapp/ && mv Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse.png
 RUN cd boxfuse-sample-java-war-hello && mvn package
 RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war webapps/
-
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 
