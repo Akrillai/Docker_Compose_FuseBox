@@ -18,7 +18,7 @@ RUN apt install wget
 RUN cd boxfuse-sample-java-war-hello/src/main/webapp/ && wget https://www.docker.com/wp-content/uploads/2022/05/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png
 RUN cd boxfuse-sample-java-war-hello/src/main/webapp/ && mv Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse.png
 RUN cd boxfuse-sample-java-war-hello && mvn package
-RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war /opt/tomcatwebapps/
+RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war /opt/tomcat/webapps/
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 
