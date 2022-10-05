@@ -4,6 +4,5 @@ services:
   building:
     build:
       context: JavaFuseBox/
-    expose:
-      - "8080"
-    command: bash -c "docker run -d --name mywebapp -p 8080:8080 docker_compose_fusebox-building"
+  
+  command: bash -c "docker run -d --name mywebapp -p 8080:8080 docker_compose_fusebox-building"
