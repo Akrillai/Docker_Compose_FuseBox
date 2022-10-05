@@ -4,7 +4,8 @@ services:
   building:
     build:
       context: JavaFuseBox/
-    # expose:
-    #   - "5000"
-    # ports:
-    #   - "8000:5000"
+    expose:
+      - "8080"
+
+  web:
+    command: docker run -d --name mywebapp -p 8080:8080 docker_compose_fusebox-building
