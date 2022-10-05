@@ -5,6 +5,7 @@ services:
     build:
       context: Java-Hello-Docker/
   web:
+    build: .
     depends_on:
       - appbuilder
     volumes:
