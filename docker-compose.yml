@@ -6,6 +6,8 @@ services:
 
   web:
     image: tomcat:9.0-jdk11
+    expose:
+      - "8080"
     ports:
       - '8080:8080'
 
