@@ -15,4 +15,4 @@ RUN cd src/main/webapp/ && wget https://www.docker.com/wp-content/uploads/2022/0
 RUN cd src/main/webapp/ && mv Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse.png
 RUN mvn package
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+CMD ["/usr/local/tomcat/tomcat/bin/catalina.sh", "run"]
