@@ -4,14 +4,12 @@ services:
   appbuilder:
     build:
       context: JavaFuseBox/
-  # web:
-  #   build: .
-  #   depends_on:
-  #     - appbuilder
-  #   volumes:
-  #     - /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
-  #   ports:
-  #     - '8080:8080'
+  web:
+    build: .
+    volumes:
+      - /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
+    ports:
+      - '8080:8080'
 
 # version: '3.8'
 
