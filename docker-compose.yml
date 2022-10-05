@@ -6,7 +6,7 @@ services:
       context: JavaFuseBox/
 
   web:
-    image: tomcat
+    image: docker_compose_fusebox-appbuilder
     volumes:
       - /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
     ports:
