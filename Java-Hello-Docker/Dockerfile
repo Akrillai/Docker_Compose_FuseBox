@@ -20,6 +20,6 @@ RUN rm src/main/webapp/boxfuse.png
 RUN cd src/main/webapp/ && wget https://www.docker.com/wp-content/uploads/2022/05/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png
 RUN cd src/main/webapp/ && mv Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse.png
 RUN mvn package
-RUN cp target/hello-1.0.war /opt/tomcat/webapps/
+# RUN cp target/hello-1.0.war /opt/tomcat/webapps/
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
