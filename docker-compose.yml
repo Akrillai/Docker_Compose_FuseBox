@@ -1,6 +1,10 @@
 version: '3.8'
 
 services:
-  your_service:
+  сборочный:
     build:
       context: JavaFuseBox/
+    expose:
+      - "5000"
+    ports:
+      - "8000:5000"
