@@ -3,7 +3,7 @@ services:
 
   appbuilder:
     build:
-      context: Java-Hello-Docker/
+      context: JavaFuseBox/
   web:
     build: .
     depends_on:
