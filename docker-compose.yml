@@ -10,6 +10,6 @@ services:
       - building
     image: tomcat
     volumes:
-      - ./target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
+      - /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
     ports:
       - '8080:8080'
