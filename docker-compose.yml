@@ -6,9 +6,9 @@ services:
       context: JavaFuseBox/
 
   web:
-    image: /opt/tomcat/bin/catalina.sh
+    image: tomcat
     volumes:
-      - /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
+      - /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war:./target/LoginWebApp-1.war:/usr/local/tomcat/webapps/hello-1.0.war
     ports:
       - '8080:8080'
 
