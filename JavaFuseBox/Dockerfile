@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM tomcat:9.0-jdk11
 RUN apt update
 RUN apt install maven -y
 RUN apt install default-jdk -y
