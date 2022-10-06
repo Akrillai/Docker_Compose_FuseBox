@@ -1,15 +1,14 @@
 version: '3'
 services:
   maven:
-    image: ubuntu:20.04
+    image: maven:3.3-jdk-8
     volumes: 
+      - ./boxfuse:/usr/src/mymaven
       - prod:/usr/src/prod
+    working_dir: /usr/src/mymaven
     command: > 
-        bash -c "
-        apt install maven -y
-        && git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        && mvn package -f boxfuse-*/
-        && cp target/*.war /usr/src/prod"
+        bash -c "mvn clean install
+        && cp /usr/src/mymaven/target/*.war /usr/src/prod"
   tomcat:
     image: tomcat:alpine
     volumes:
