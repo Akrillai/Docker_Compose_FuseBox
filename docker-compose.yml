@@ -2,10 +2,10 @@ version: '3'
 services:
   maven:
     image: maven:3.3-jdk-8
-    command: >
-      git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git"
-      && bash -c "mvn clean install
-      && cp /usr/src/mymaven/target/*.war /usr/src/prod"
+    command: > 
+        bash -c "git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        && mvn clean install
+        && cp /usr/src/mymaven/target/*.war /usr/src/prod"
     volumes: 
       - ./boxfuse:/usr/src/mymaven
       - prod:/usr/src/prod
