@@ -1,17 +1,16 @@
-version: '3'
+---
+version: '3.8'
 services:
-  java-app:
-    build:
-      context: JavaFuseBox/
-    volumes:
-      - warnik:/opt/docker_project/boxfuse-sample-java-war-hello/target/
-
-  tomcat:  
-    build: ./Core
-    volumes:
-      - ./warnik/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
-    ports:
-      - '8080:8080'
-
+    maven:
+      build: .
+      volumes:
+        - mavendata:/home/app/target/
+    tomcat: 
+      image: tomcat:9.0.8-jre8-alpine
+      ports:
+        - "8080:8080"
+      volumes:
+        - mavendata:/usr/local/tomcat/webapps/
 volumes:
-  warnik:
+  mavendata:
+  #tested, 106mb tomcat image
