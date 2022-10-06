@@ -1,9 +1,37 @@
 version: '3.3'
 services:
-  appbuilder:
+  app:
     build:
       context: JavaFuseBox/
+    volumes:
+    - data_volume:/var/www/data
+
   web:
-    image: tomcat:9.0-jdk11
+    build:
+      context: tomcat_launcher/
     ports:
       - '8080:8080'
+
+
+
+
+# RUN cp boxfuse-*/target/*.war /usr/local/tomcat/webapps/
+
+# version: '2'
+# Services:
+# web:
+# container_name: web
+# image: nginx
+# ports:
+# - "80:8080"
+# volumes:
+# - data_volume:/var/www/data
+# app:
+# container_name: app1
+# build:
+# context: .
+# dockerfile: Dockerfile
+# volumes:
+# - data_volume:/data/app1/context
+# volumes:
+# data_volume:
