@@ -1,16 +1,22 @@
 version: '3'
 services:
-  java-app:
-    build:
-      context: JavaFuseBox/
+  maven:
+    image: maven:3.3-jdk-8
+    command: bash -c "git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git"
+    volumes: 
+      - ./boxfuse:/usr/src/mymaven
+      - prod:/usr/src/prod
+    working_dir: /usr/src/mymaven
+    command: > 
+        bash -c "mvn clean install
+        && cp /usr/src/mymaven/target/*.war /usr/src/prod"
+  
+  
+  tomcat:
+    image: tomcat:alpine
     volumes:
-      - warnik:/opt/docker_project/boxfuse-sample-java-war-hello/target/
-
-  tomcat:  
-    build: .
-    volumes:
-      - ./warnik:/opt/tomcat/webapps/
+      - prod:/usr/local/tomcat/webapps
     ports:
-      - '8080:8080'
+      - "8080:8080"
 volumes:
-  warnik:
+  prod:
