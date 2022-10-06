@@ -5,8 +5,7 @@ services:
     volumes: 
       - prod:/usr/src/prod
     command: > 
-        bash -c "git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        && mvn package -f boxfuse-*/
+        bash -c "mvn package -f boxfuse-*/
         && cp target/*.war /usr/src/prod"
   tomcat:
     image: tomcat:alpine
@@ -16,6 +15,11 @@ services:
       - "8080:8080"
 volumes:
   prod:
+
+    # command: > 
+    #     bash -c "git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+    #     && mvn package -f boxfuse-*/
+    #     && cp target/*.war /usr/src/prod"
 
 
         # && apt install wget maven -y
