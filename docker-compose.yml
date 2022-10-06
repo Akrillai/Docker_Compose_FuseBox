@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 services:
   java-app:
     build:
@@ -6,8 +6,8 @@ services:
     # volumes:
     # - data_volume:/var/www/data
 
-  tomcat:
-    build: ./tomcat_launcher
+  meghcore:  
+    build: ./Core
     ports:
       - '8080:8080'
 
