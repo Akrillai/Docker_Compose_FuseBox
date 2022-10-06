@@ -5,7 +5,9 @@ services:
     volumes: 
       - prod:/usr/src/prod
     command: > 
-        bash -c "git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        bash -c "
+        apt install maven -y
+        && git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         && mvn package -f boxfuse-*/
         && cp target/*.war /usr/src/prod"
   tomcat:
