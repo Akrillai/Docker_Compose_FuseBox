@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ubuntu:20.04
 RUN apt update
 RUN mkdir /opt/tomcat
 WORKDIR /opt/tomcat
