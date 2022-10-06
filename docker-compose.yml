@@ -1,11 +1,12 @@
 version: '3'
 services:
   maven:
-    image: maven:3.3-jdk-8
+    image: ubuntu:20.04
     volumes: 
       - prod:/usr/src/prod
     command: > 
         bash -c "git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        && apt install wget maven
         && rm boxfuse-sample-java-war-hello/src/main/webapp/boxfuse.png
         && cd boxfuse-sample-java-war-hello/src/main/webapp/ && wget https://www.docker.com/wp-content/uploads/2022/05/Docker_Temporary_Image_Google_Blue_1080x1080_v1.png
         && cd boxfuse-sample-java-war-hello/src/main/webapp/ && mv Docker_Temporary_Image_Google_Blue_1080x1080_v1.png boxfuse.png
