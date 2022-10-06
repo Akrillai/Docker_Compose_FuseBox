@@ -12,7 +12,9 @@ services:
     # volumes:
     #   - ./target/ROOT.war:/usr/local/tomcat/webapps/ROOT.war
     expose:
-      - "8080"
+     - "8080"
+    ports:
+    - "8080:8080"
 
 # RUN cp boxfuse-*/target/*.war /usr/local/tomcat/webapps/
 
