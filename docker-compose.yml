@@ -4,12 +4,12 @@ services:
     build:
       context: JavaFuseBox/
     volumes:
-      - warnik:/opt/docker_project/boxfuse-sample-java-war-hello/target/
+      - warnik:/opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war
 
   tomcat:  
     build: ./Core
     volumes:
-      - warnik/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
+      - ./warnik:/opt/tomcat/webapps/hello-1.0.war
     ports:
       - '8080:8080'
 
