@@ -1,19 +1,10 @@
 FROM ubuntu:20.04
-
-#setting time zone
-ENV TZ=Europe/Moscow
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-#update and app install
-RUN apt-get -y update && apt-get install -y \
-git \
-maven
-
-#setting directory and packaging
-WORKDIR /home/app
-RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /home/app
-RUN mvn package
-
-# #moving war file
-# WORKDIR /usr/local/tomcat/webapps
-# RUN find /home/app/target -name "*.war" -exec cp -t /usr/local/tomcat/webapps {} +
+RUN apt update
+RUN apt install default-jdk -y
+RUN mkdir /opt/tomcat
+WORKDIR /opt/tomcat
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.67/bin/apache-tomcat-9.0.67.tar.gz .
+RUN tar -xvzf apache-tomcat-9.0.67.tar.gz
+RUN mv apache-tomcat-9.0.67/* /opt/tomcat
+EXPOSE 8080
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
