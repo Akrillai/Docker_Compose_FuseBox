@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 RUN apt update
+RUN apt install default-jdk -y
 RUN mkdir /opt/tomcat
 WORKDIR /opt/tomcat
 ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.67/bin/apache-tomcat-9.0.67.tar.gz .
