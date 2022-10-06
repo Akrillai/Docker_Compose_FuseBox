@@ -1,10 +1,10 @@
 version: '3.3'
 services:
-  app:
+  java-app:
     build:
       context: JavaFuseBox/
-    volumes:
-    - data_volume:/var/www/data
+    # volumes:
+    # - data_volume:/var/www/data
 
   web:
     build:
