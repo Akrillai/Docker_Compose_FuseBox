@@ -14,9 +14,6 @@ services:
     expose:
       - "8080"
 
-
-
-
 # RUN cp boxfuse-*/target/*.war /usr/local/tomcat/webapps/
 
 # version: '2'
