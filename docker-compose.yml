@@ -1,12 +1,12 @@
 version: '3'
 services:
-  java-app:
-    build:
-      context: JavaFuseBox/
+  # java-app:
+  #   build:
+  #     context: JavaFuseBox/
     # volumes:
     # - data_volume:/var/www/data
 
-  meghcore:  
+  tomcat:  
     build: ./Core
     ports:
       - '8080:8080'
