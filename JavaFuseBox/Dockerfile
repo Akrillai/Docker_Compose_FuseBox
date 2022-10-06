@@ -5,3 +5,4 @@ RUN apt install git -y
 WORKDIR /opt/docker_project
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN mvn package -f boxfuse-*/
+RUN cp /opt/docker_project/boxfuse-sample-java-war-hello/target/hello-1.0.war /opt/tomcat/webapps/
