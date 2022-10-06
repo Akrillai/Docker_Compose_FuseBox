@@ -4,12 +4,12 @@ services:
     build:
       context: JavaFuseBox/
     volumes:
-      - data_volume:/opt/docker_project/boxfuse-sample-java-war-hello/target/
+      - data_volume:/opt/docker_project/boxfuse-sample-java-war-hello/
   
   tomcat:  
     build: ./Core
     volumes:
-      - data_volume/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
+      - .target/hello-1.0.war:/opt/tomcat/webapps/hello-1.0.war
     ports:
       - '8080:8080'
 
