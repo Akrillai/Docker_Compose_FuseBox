@@ -6,11 +6,13 @@ services:
     # volumes:
     # - data_volume:/var/www/data
 
-  web:
-    build:
-      context: tomcat_launcher/
-    ports:
-      - '8080:8080'
+  tomcat:
+    container_name: tomcat-container
+    build: ./tomcat_launcher
+    volumes:
+      - ./target/ROOT.war:/usr/local/tomcat/webapps/ROOT.war
+    expose:
+      - "8080"
 
 
 
